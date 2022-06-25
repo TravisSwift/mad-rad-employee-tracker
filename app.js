@@ -1,12 +1,12 @@
 const express = require('express');
-const mysql = require ('mysql');
+const mysql = require ('mysql2');
 
 // Create Connection 
 const db = mysql.createConnection ({
     host :"localhost",
     user  :"root",
     password :"password",
-    database :'employeeDB'
+    database :'department'
 
 });
 
