@@ -1,18 +1,15 @@
-import fetch from 'node-fetch';
+const fetch = require ('node-fetch');
 // let fetch = import('node-fetch')
 
-// const mysql = require('mysql2');
-const inquirer = require('inquirer');
-
-import inquirer from 'inquirer';
- 
+const mysql = require('mysql2');
+const inquirer = require('inquirer'); 
 
 
 // Create Connection 
-const db = mysql.createConnection ({
+const connection = mysql.createConnection ({
     host :"localhost",
     user  :"root",
-    password :"password",
+    password :"Trav4235$",
     database :'department'
 
 });
