@@ -1,4 +1,5 @@
-INSERT INTO department (name,)
+USE tracker;
+INSERT INTO department (name)
 VALUES 
 ('Sales'),
 ('Customer_Service'),
@@ -7,7 +8,7 @@ VALUES
 ('IT'),
 ('Payroll');
 
-INSERT INTO role (title, salary)
+INSERT INTO roles (title, salary)
 VALUES
 ('Manager', '90000'),
 ('Supervisor', '60000'),
@@ -17,7 +18,7 @@ VALUES
 ('Sales', '70000');
 
 
-INSERT INTO employees (first_name, last_name, role_id, manager_id)
+INSERT INTO employees (first_name, last_name, role_id)
 VALUES
   ('Ronald', 'Firbank', 1),
   ('Virginia', 'Woolf', 2),
@@ -30,4 +31,8 @@ VALUES
   ('Octavia', 'Butler', 3),
   ('Unica', 'Zurn', 1);
 
- 
+INSERT INTO employees (first_name, last_name, role_id, manager_id)
+VALUES
+('John', 'Smith', 1, 1),
+('Sally', 'Smith', 1, 2),
+('Darth', 'Maul', 1, 3);
