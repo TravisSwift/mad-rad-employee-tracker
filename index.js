@@ -3,6 +3,7 @@ const fetch = require ('node-fetch');
 
 const mysql = require('mysql2');
 const inquirer = require('inquirer'); 
+const { resourceLimits } = require('worker_threads');
 
 
 // Create Connection 
@@ -10,24 +11,57 @@ const connection = mysql.createConnection ({
     host :"localhost",
     user  :"root",
     password :"Trav4235$",
-    database :'department'
+    database :'tracker'
 
 });
 
+
 const start = () => {
+    connection.connect(function(err) {
+        if(err) {
+            console.log('connection error:' + err.stack);
+        } else{
+
+
+
+
     inquirer.prompt(
         {
-            name: 'mainquestion',
+            name: 'greeting',
             type: 'list',
-            message: 'User sees this question',
-            choices: ['this is a choice', 'second choice', 'third']
-        }
+            message: 'What do you want to do',
+            choices: ['View all employees', 'view all departments', 'add a department', 'add a role', 'add an employee', 'update an employee role']
+       },
 
-    ).then((answer) => {
-        console.log(answer)
-        connection.end();
-    })
-}
+
+
+    ).then(function(answer) {
+        if(answer['greeting'] == ("View all employees")) {
+            connection.query(
+                "SELECT * FROM employees",
+                function(err, results, fields) {
+                  if(err) {
+                        console.log(err);
+                    } else {
+                    Object.keys(results).forEach(key => {
+                        console.log(results[key]);
+                    });
+                    }
+                }
+                
+                
+            
+            );
+}});
+        // connection.end();
+        };
+        
+    }
+   ); };
+     
+        
+
+
  
 
 
@@ -75,25 +109,4 @@ connection.connect ((err) => {
     start()
 })
 
-// connect
-
-// db.connect(() => {
-//     if(err) {
-//         throw err;
-//     }
-//         console.log('MySQL Connected...')
-//     });
-
-// app.get('/createdb') (req, res) => {
-    
-//     let sql = 'CREATE DATABASE department';
-//     db.query(sql, (err, result) => {
-//         if(err) throw err;
-//         console.log(result)
-//         res.send('database created...');
-//     });
-// };
-
-// listen('3000', () => {
-//     console.log('server started on port 3000');
-// });
+ 

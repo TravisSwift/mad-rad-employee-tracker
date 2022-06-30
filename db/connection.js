@@ -1,12 +1,12 @@
-// const mysql = require('mysql2');
+const mysql = require('mysql2');
 
-// const db = mysql.createConnection({
-//   host: 'localhost',
-//   // Your MySQL username,
-//   user: 'root',
-//   // Your MySQL password
-//   password: '',
-//   database: 'department'
-// });
+const db = mysql.createConnection({
+  host: 'localhost',
+  // Your MySQL username,
+  user: 'root',
+  // Your MySQL password
+  password: '',
+  database: 'tracker'
+});
 
-// module.exports = db;
+module.exports = db;
