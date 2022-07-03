@@ -35,30 +35,32 @@ const start = () => {
 
 
 
-    ).then(function(answer) {
-        if(answer['greeting'] == ("View all employees")) {
-            connection.query(
-                "SELECT * FROM employees",
-                function(err, results, fields) {
-                  if(err) {
-                        console.log(err);
-                    } else {
-                    Object.keys(results).forEach(key => {
-                        console.log(results[key]);
-                    });
-                    }
+            ).then(function (answer) {
+                if (answer['greeting'] == ("View all employees")) {
+                    connection.query(
+                        "SELECT * FROM employees",
+                        function (err, results, fields) {
+                            if (err) {
+                                console.log(err);
+                            } else {
+                                Object.keys(results).forEach(key => {
+                                    console.log(results[key]);
+                                });
+                            }
+                        }
+
+
+
+                    );
                 }
-                
-                
-            
-            );
-}});
-        // connection.end();
+            });
+            // connection.end();
         };
-        
+
     }
-   ); };
-     
+    );
+};
+
         
 
 
@@ -97,12 +99,12 @@ class Employee {
 
 // Create DB
 
-const newDepartment = () => {
-    connection.query('SELECT * FROM department', (err, res) => {
+// const newDepartment = () => {
+//     connection.query('SELECT * FROM department', (err, res) => {
         
-    } );
+//     } );
 
-}
+// }
 
 connection.connect ((err) => {
     if(err) throw err
