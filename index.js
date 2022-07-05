@@ -35,6 +35,10 @@ const start = () => {
 
 
 
+
+
+
+       
             ).then(function (answer) {
                 if (answer['greeting'] == ("View all employees")) {
                     connection.query(
